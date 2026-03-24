@@ -249,15 +249,21 @@ function App() {
         </section>
 
         {/* DOWNLOAD CV */}
-        <section id="cv" className="mb-16 border-2 border-dashed border-fallout-green p-6 md:p-8 text-center bg-fallout-green-dim/5">
-            <h3 className="text-2xl md:text-3xl mb-4 uppercase">DOCUMENTAZIONE FISICA</h3>
-            <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-tight">
-                RECUPERA IL DOSSIER CARTACEO (PDF) DEL PROFILO UTENTE A.PIRAS PER ARCHIVI OFFLINE.
-            </p>
-            <button className="border-2 border-fallout-green text-xl md:text-2xl px-6 py-3 hover:bg-fallout-green hover:text-fallout-bg transition-all animate-pulse uppercase font-bold">
-                SCARICA_CV.PDF
-            </button>
-        </section>
+      <section id="cv" className="mb-16 border-2 border-dashed border-fallout-green p-6 md:p-8 text-center bg-fallout-green-dim/5">
+          <h3 className="text-2xl md:text-3xl mb-4 uppercase">DOCUMENTAZIONE FISICA</h3>
+          <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-tight">
+              RECUPERA IL DOSSIER CARTACEO (PDF) DEL PROFILO UTENTE A.PIRAS PER ARCHIVI OFFLINE.
+          </p>
+          
+          {/* Trasformato in <a> con attributo download */}
+          <a 
+            href="/CV_Alessandra_Piras.pdf" 
+            download="CV_Alessandra_Piras.pdf"
+            className="inline-block border-2 border-fallout-green text-xl md:text-2xl px-6 py-3 hover:bg-fallout-green hover:text-fallout-bg transition-all animate-pulse uppercase font-bold"
+          >
+              SCARICA_CV.PDF
+          </a>
+      </section>
 
       </main>
 
