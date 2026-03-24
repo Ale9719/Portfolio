@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-fallout-bg: #050a05;
+  --color-fallout-green: #1fff2e;
+  --color-fallout-green-dim: #062b08;
+  --color-fallout-glass: rgba(31, 255, 46, 0.03);
+}
+html {
+  scroll-behavior: smooth;
+}
+@layer base {
+  body {
+    background-color: var(--color-fallout-bg);
+    color: var(--color-fallout-green);
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+    overflow-x: hidden;
+  }
+
+  * {
+    text-shadow: 0 0 8px rgba(31, 255, 46, 0.6);
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.99; }
+    100% { opacity: 1; }
+  }
+
+  .screen-effect {
+    animation: flicker 0.15s infinite;
+  }
+}
