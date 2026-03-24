@@ -254,11 +254,9 @@ function App() {
           <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-tight">
               RECUPERA IL DOSSIER CARTACEO (PDF) DEL PROFILO UTENTE A.PIRAS PER ARCHIVI OFFLINE.
           </p>
-          
-          {/* Trasformato in <a> con attributo download */}
           <a 
-            href="/CV_Alessandra_Piras.pdf" 
-            download="CV_Alessandra_Piras.pdf"
+            href="/Alessandra Piras CV.pdf" 
+            download="Alessandra Piras CV.pdf"
             className="inline-block border-2 border-fallout-green text-xl md:text-2xl px-6 py-3 hover:bg-fallout-green hover:text-fallout-bg transition-all animate-pulse uppercase font-bold"
           >
               SCARICA_CV.PDF
