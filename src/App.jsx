@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// CONFIGURAZIONE DATI (Invariati)
+// CONFIGURAZIONE DATI
 const GITHUB_USERNAME = "Ale9719"; 
 const mySkills = [
   "HTML5", "CSS3", "SASS/SCSS", "JavaScript (ES6+)", "jQuery",
@@ -30,7 +30,7 @@ export default function App() {
     <div className="min-h-screen bg-black text-fallout-green font-mono selection:bg-fallout-green selection:text-black overflow-hidden flex flex-col relative screen-effect">
       
       {/* SCANLINES OVERLAY */}
-      <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[size:100%_4px,3px_100%] opacity-30"></div>
+      <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-size-[100%_4px,3px_100%] opacity-30"></div>
 
       {/* PIP-BOY HEADER TABS */}
       <nav className="w-full max-w-5xl mx-auto pt-8 px-4 z-40">
@@ -50,7 +50,7 @@ export default function App() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-4 md:px-10 py-1 text-xl md:text-2xl font-bold transition-all border-t-2 border-x-2 border-fallout-green
-                ${activeTab === tab ? 'bg-fallout-green text-black translate-y-[2px]' : 'hover:bg-fallout-green-dim/20'}`}
+                ${activeTab === tab ? 'bg-fallout-green text-black translate-y-0.5' : 'hover:bg-fallout-green-dim/20'}`}
             >
               {tab}
             </button>
@@ -59,7 +59,7 @@ export default function App() {
       </nav>
 
       {/* MAIN SCREEN AREA */}
-      <main className="flex-grow w-full max-w-5xl mx-auto border-x-4 border-b-4 border-fallout-green bg-black/40 relative mb-8 overflow-y-auto custom-scrollbar">
+      <main className="grow w-full max-w-5xl mx-auto border-x-4 border-b-4 border-fallout-green bg-black/40 relative mb-8 overflow-y-auto custom-scrollbar">
         <div className="p-6 md:p-10 animate-in fade-in duration-500">
           
           {/* TAB STAT: PROFILO & SKILLS */}
@@ -161,7 +161,7 @@ export default function App() {
 
       {/* MODAL: ACCESS DENIED */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md">
           <div className="border-4 border-red-600 p-8 max-w-lg w-full bg-black shadow-[0_0_50px_rgba(220,38,38,0.5)]">
             <h2 className="text-red-600 text-5xl font-black mb-6 text-center animate-bounce">ALT!</h2>
             <div className="text-red-500 space-y-4 font-bold border-y-2 border-red-900 py-4 mb-6">
