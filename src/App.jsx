@@ -143,7 +143,7 @@ export default function App() {
                 <h2 className="text-3xl border-b border-fallout-green mb-6 italic uppercase text-left">&gt; Uplink_Frequenze</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {[
-                    { label: 'MAIL', link: 'mailto:tuaemail@esempio.com' },
+                    { label: 'MAIL', link: 'mailto:ale.piras9719@gmail.com' },
                     { label: 'LINKEDIN', link: 'https://www.linkedin.com/in/alessandra-piras-407990377' },
                     { label: 'GITHUB', link: 'https://github.com/ale9719' }
                   ].map(c => (
