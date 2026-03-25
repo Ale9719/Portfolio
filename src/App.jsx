@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// --- CONFIGURAZIONE PROGETTI ---
+// CONFIGURAZIONE PROGETTI 
 const myProjects = [
   { id: "SEOUL-SOUL", title: "SeoulSoul E-commerce", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Hub di approvvigionamento K-Pop. Sviluppato in React.", githubUrl: "https://ale9719.github.io/SeoulSoul" },
   { id: "BORORGRING", title: "Bororgring Hub", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Piattaforma di raduno per appassionati di motori.", githubUrl: "https://ale9719.github.io/Bororgring/" },
@@ -12,7 +12,7 @@ const myProjects = [
 
 const mySkills = ["HTML5", "CSS3", "SASS", "JavaScript", "jQuery", "WordPress", "PHP", "React", "Tailwind", "GIT"];
 
-// --- HOOK TYPEWRITER ---
+// HOOK TYPEWRITER
 const useTypewriter = (text, speed = 50) => {
   const [displayedText, setDisplayedText] = useState("");
   useEffect(() => {
@@ -51,14 +51,13 @@ export default function App() {
   return (
     <div className={`min-h-screen flex flex-col relative screen-effect ${isAmber ? 'theme-amber' : ''} ${showModal ? 'shake' : ''}`}>
       
-      {/* SCANLINES OVERLAY */}
-      <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%] opacity-20"></div>
+      <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-size-[100%_4px,3px_100%]pacity-20"></div>
 
       {/* THEME SELECTOR */}
-      <div className="fixed top-4 right-4 z-[60] flex items-center gap-3 text-[10px]">
+      <div className="fixed top-4 right-4 z-60 flex items-center gap-3 text-[10px]">
         <span className="opacity-50 tracking-widest font-bold">COLOR_UI:</span>
-        <button onClick={() => setIsAmber(false)} className="w-4 h-4 rounded-full bg-[#1fff2e] border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
-        <button onClick={() => setIsAmber(true)} className="w-4 h-4 rounded-full bg-[#ffb642] border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
+        <button onClick={() => setIsAmber(false)} className="w-4 h-4 rounded-full bg-fallout-green border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
+        <button onClick={() => setIsAmber(true)} className="w-4 h-4 rounded-full bg-fallout-amber border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
       </div>
 
       {/* HEADER */}
@@ -79,7 +78,7 @@ export default function App() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-8 md:px-14 py-2 text-2xl font-bold transition-all border-t-2 border-x-2 
-                ${activeTab === tab ? 'bg-[var(--pip-color)] text-black' : 'hover:bg-[var(--pip-color-dim)] opacity-60'}`}
+                ${activeTab === tab ? 'bg-(--pip-color) text-black' : 'hover:bg-(--pip-color-dim) opacity-60'}`}
             >
               {tab}
             </button>
@@ -87,7 +86,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* MAIN SCREEN */}
       <main className="grow w-full max-w-5xl mx-auto border-x-4 border-b-4 bg-black/40 relative mb-8 overflow-y-auto custom-scrollbar">
         <div className="p-6 md:p-10">
           
@@ -101,12 +99,12 @@ export default function App() {
                     <p className="opacity-90 leading-tight h-12 text-xl tracking-tighter">
                         {bioText}<span className="animate-pulse">_</span>
                     </p>
-                    <div className="h-6 w-full bg-[var(--pip-color-dim)] border-2 p-0.5 relative">
-                      <div className="h-full bg-[var(--pip-color)] w-[85%] transition-all duration-1000"></div>
+                    <div className="h-6 w-full bg-(--pip-color-dim) border-2 p-0.5 relative">
+                      <div className="h-full bg-(--pip-color) w-[85%] transition-all duration-1000"></div>
                       <span className="absolute inset-0 text-[11px] text-center text-black font-black flex items-center justify-center uppercase">XP_LEVEL: 85%</span>
                     </div>
                   </div>
-                  <div className="border-2 p-5 bg-[var(--pip-color-dim)]/20 italic text-md leading-relaxed border-dashed">
+                  <div className="border-2 p-5 bg-(--pip-color-dim)/20 italic text-md leading-relaxed border-dashed">
                     "Interfacce visive e sistemi CMS ottimizzati per la Zona Contaminata digitale. Specialista nel recupero dati pre-bellici."
                   </div>
                 </div>
@@ -116,7 +114,7 @@ export default function App() {
                 <h2 className="text-3xl border-b mb-6 italic font-black">&gt; Abilità</h2>
                 <div className="flex flex-wrap gap-3">
                   {mySkills.map(s => (
-                    <span key={s} className="border-2 px-4 py-1 hover:bg-[var(--pip-color)] hover:text-black transition-colors font-bold text-sm tracking-widest cursor-default">
+                    <span key={s} className="border-2 px-4 py-1 hover:bg-(--pip-color) hover:text-black transition-colors font-bold text-sm tracking-widest cursor-default">
                       [{s}]
                     </span>
                   ))}
@@ -132,7 +130,7 @@ export default function App() {
                 {myProjects.map(p => (
                   <div key={p.id} onClick={() => handleProjectClick(p)}
                     className={`p-5 border-2 cursor-pointer transition-all hover:scale-[1.02] flex flex-col justify-between group
-                      ${p.type === 'corporate' ? 'border-red-900 bg-red-950/10' : 'bg-[var(--pip-color-dim)]/10'}`}
+                      ${p.type === 'corporate' ? 'border-red-900 bg-red-950/10' : 'bg-(--pip-color-dim)/10'}`}
                   >
                     <div>
                         <div className="flex justify-between items-start mb-3">
@@ -144,7 +142,7 @@ export default function App() {
                     </div>
                     <div className="mt-6 flex flex-wrap gap-2">
                       {p.tech.map(t => (
-                        <span key={t} className="bg-[var(--pip-color)] text-black text-[10px] px-2 font-black">{t}</span>
+                        <span key={t} className="bg-(--pip-color) text-black text-[10px] px-2 font-black">{t}</span>
                       ))}
                     </div>
                   </div>
@@ -155,11 +153,11 @@ export default function App() {
 
           {activeTab === 'ITEMS' && (
             <div className="space-y-12 animate-in fade-in duration-500 text-center md:text-left">
-              <section className="border-4 border-dotted p-10 bg-[var(--pip-color-dim)]/5">
+              <section className="border-4 border-dotted p-10 bg-(--pip-color-dim)/5">
                 <h2 className="text-4xl mb-4 font-black underline">Inventario_Dossier</h2>
                 <p className="mb-8 opacity-70 text-sm italic tracking-widest">Generazione documento PDF per archiviazione fisica.</p>
                 <a href={`${import.meta.env.BASE_URL}Alessandra_Piras_CV.pdf`} download 
-                  className="inline-block bg-[var(--pip-color)] text-black px-12 py-4 text-3xl font-black hover:bg-white hover:scale-105 transition-all animate-pulse">
+                  className="inline-block bg-(--pip-color) text-black px-12 py-4 text-3xl font-black hover:bg-white hover:scale-105 transition-all animate-pulse">
                   SCARICA_CV.EXE
                 </a>
               </section>
@@ -171,7 +169,7 @@ export default function App() {
                     { label: 'GITHUB', link: 'https://github.com/ale9719' }
                   ].map(c => (
                     <a key={c.label} href={c.link} target="_blank" rel="noreferrer" 
-                       className="border-2 py-5 hover:bg-[var(--pip-color)] hover:text-black font-black text-xl text-center transition-colors">
+                       className="border-2 py-5 hover:bg-(--pip-color) hover:text-black font-black text-xl text-center transition-colors">
                       {c.label}
                     </a>
                   ))}
@@ -190,7 +188,7 @@ export default function App() {
 
       {/* MODAL NDA */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
           <div className="border-4 border-red-600 p-10 max-w-md w-full bg-black shadow-[0_0_60px_rgba(220,38,38,0.6)] text-center">
             <h2 className="text-red-600 text-6xl font-black mb-6 animate-bounce italic">ALT!</h2>
             <div className="space-y-4 border-y-2 border-red-900 py-6 mb-8">

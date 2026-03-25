@@ -52,7 +52,6 @@
   .screen-effect { animation: flicker 0.15s infinite; }
   .shake { animation: screen-shake 0.1s ease-in-out infinite; }
 
-  /* Scrollbar personalizzata stile terminale */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: var(--color-fallout-bg); }
   ::-webkit-scrollbar-thumb { background: var(--pip-color); }
