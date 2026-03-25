@@ -9,11 +9,11 @@ const mySkills = [
 
 const myProjects = [
   { id: "SEOUL-SOUL", title: "SeoulSoul E-commerce", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Hub di approvvigionamento K-Pop. Sviluppato in React.", githubUrl: "https://ale9719.github.io/SeoulSoul" },
-  { id: "BORORGRING", title: "Bororgring Hub", tech: ["React", "SASS"], type: "public", status: "ONLINE", description: "Piattaforma di raduno per appassionati di motori.", githubUrl: "https://ale9719.github.io/Bororgring/" },
-  { id: "ARCHI-LITTLE", title: "ARCHIFORLITTLE", tech: ["WP", "Bootstrap"], type: "corporate", status: "AZIENDALE", description: "Progettazione di rifugi (camerette) su misura." },
-  { id: "ELAP-SENSORS", title: "ELAP_INSTRUMENTS", tech: ["WP", "PHP"], type: "corporate", status: "AZIENDALE", description: "Catalogo digitale di sensori industriali." },
-  { id: "DC-GOMME", title: "DC GOMME", tech: ["WooCommerce"], type: "corporate", status: "AZIENDALE", description: "Terminal di vendita pneumatici e attrezzatura moto." },
-  { id: "ORCHIDEA-SESS", title: "PROGETTO ORCHIDEA", tech: ["WP", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Piattaforma informativa per servizi di sessuologia." }
+  { id: "BORORGRING", title: "Bororgring Hub", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Piattaforma di raduno per appassionati di motori.", githubUrl: "https://ale9719.github.io/Bororgring/" },
+  { id: "ARCHI-LITTLE", title: "ARCHIFORLITTLE", tech: ["WP", "Bootstrap", "PHP", "ACF", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Progettazione di rifugi (camerette) su misura." },
+  { id: "ELAP-SENSORS", title: "ELAP_INSTRUMENTS", tech: ["WP", "PHP", "ACF", "Storefront", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Catalogo digitale di sensori industriali." },
+  { id: "DC-GOMME", title: "DC GOMME", tech: ["WP", "WooCommerce", "ACF", "PHP", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Terminal di vendita pneumatici e attrezzatura moto." },
+  { id: "ORCHIDEA-SESS", title: "PROGETTO ORCHIDEA", tech: ["WP", "Bootstrap", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Piattaforma informativa per servizi di sessuologia." }
 ];
 
 const GithubIcon = ({ className }) => (
