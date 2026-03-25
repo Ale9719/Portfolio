@@ -26,11 +26,12 @@
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     overflow-x: hidden;
+    margin: 0;
   }
 
   * {
     text-shadow: 0 0 8px rgba(31, 255, 46, 0.4);
-    border-color: var(--pip-color);
+    border-color: var(--pip-color) !important;
   }
 
   @keyframes flicker {
@@ -42,12 +43,17 @@
 
   @keyframes screen-shake {
     0% { transform: translate(0,0); }
-    25% { transform: translate(5px, 5px); }
-    50% { transform: translate(-5px, -5px); }
-    75% { transform: translate(5px, -5px); }
+    25% { transform: translate(4px, 4px); }
+    50% { transform: translate(-4px, -4px); }
+    75% { transform: translate(4px, -4px); }
     100% { transform: translate(0,0); }
   }
 
   .screen-effect { animation: flicker 0.15s infinite; }
-  .shake { animation: screen-shake 0.2s ease-in-out infinite; }
+  .shake { animation: screen-shake 0.1s ease-in-out infinite; }
+
+  /* Scrollbar personalizzata stile terminale */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--color-fallout-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--pip-color); }
 }

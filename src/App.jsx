@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-// CONFIGURAZIONE DATI
-const mySkills = ["HTML5", "CSS3", "SASS", "JavaScript (ES6+)", "WordPress", "PHP", "React", "Tailwind v4", "GIT"];
-
+// --- CONFIGURAZIONE PROGETTI ---
 const myProjects = [
-  { id: "SEOUL-SOUL", title: "SeoulSoul E-commerce", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Hub di approvvigionamento K-Pop.", githubUrl: "https://ale9719.github.io/SeoulSoul" },
-  { id: "BORORGRING", title: "Bororgring Hub", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Piattaforma per appassionati di motori.", githubUrl: "https://ale9719.github.io/Bororgring/" },
-  { id: "ARCHI-LITTLE", title: "ARCHIFORLITTLE", tech: ["WP", "PHP", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Progettazione di rifugi su misura." },
-  { id: "ELAP-SENSORS", title: "ELAP_INSTRUMENTS", tech: ["WP", "PHP", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Catalogo digitale di sensori industriali." },
+  { id: "SEOUL-SOUL", title: "SeoulSoul E-commerce", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Hub di approvvigionamento K-Pop. Sviluppato in React.", githubUrl: "https://ale9719.github.io/SeoulSoul" },
+  { id: "BORORGRING", title: "Bororgring Hub", tech: ["React", "Tailwind"], type: "public", status: "ONLINE", description: "Piattaforma di raduno per appassionati di motori.", githubUrl: "https://ale9719.github.io/Bororgring/" },
+  { id: "ARCHI-LITTLE", title: "ARCHIFORLITTLE", tech: ["WP", "Bootstrap", "PHP", "ACF"], type: "corporate", status: "AZIENDALE", description: "Progettazione di rifugi (camerette) su misura." },
+  { id: "ELAP-SENSORS", title: "ELAP_INSTRUMENTS", tech: ["WP", "PHP", "ACF", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Catalogo digitale di sensori industriali." },
+  { id: "DC-GOMME", title: "DC GOMME", tech: ["WP", "WooCommerce", "ACF", "PHP"], type: "corporate", status: "AZIENDALE", description: "Terminal di vendita pneumatici e attrezzatura moto." },
+  { id: "ORCHIDEA", title: "PROGETTO ORCHIDEA", tech: ["WP", "Bootstrap", "SCSS"], type: "corporate", status: "AZIENDALE", description: "Piattaforma informativa per servizi di sessuologia." }
 ];
 
-// HOOK PER EFFETTO SCRITTURA
+const mySkills = ["HTML5", "CSS3", "SASS", "JavaScript", "jQuery", "WordPress", "PHP", "React", "Tailwind", "GIT"];
+
+// --- HOOK TYPEWRITER ---
 const useTypewriter = (text, speed = 50) => {
   const [displayedText, setDisplayedText] = useState("");
   useEffect(() => {
@@ -23,7 +25,7 @@ const useTypewriter = (text, speed = 50) => {
       } else { clearInterval(timer); }
     }, speed);
     return () => clearInterval(timer);
-  }, [text, speed]);
+  }, [text]);
   return displayedText;
 };
 
@@ -40,40 +42,44 @@ export default function App() {
 
   const handleProjectClick = (p) => {
     if (p.type === 'corporate') {
-        setShowModal(true);
+      setShowModal(true);
     } else {
-        window.open(p.githubUrl, '_blank');
+      window.open(p.githubUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
   return (
     <div className={`min-h-screen flex flex-col relative screen-effect ${isAmber ? 'theme-amber' : ''} ${showModal ? 'shake' : ''}`}>
       
-      {/* SELETTORE COLORE (Easter Egg) */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-2 text-[10px]">
-        <span className="opacity-50">COLOR_UI:</span>
-        <button onClick={() => setIsAmber(false)} className="w-4 h-4 rounded-full bg-[#1fff2e] border border-white cursor-pointer" />
-        <button onClick={() => setIsAmber(true)} className="w-4 h-4 rounded-full bg-[#ffb642] border border-white cursor-pointer" />
+      {/* SCANLINES OVERLAY */}
+      <div className="pointer-events-none fixed inset-0 z-50 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%] opacity-20"></div>
+
+      {/* THEME SELECTOR */}
+      <div className="fixed top-4 right-4 z-[60] flex items-center gap-3 text-[10px]">
+        <span className="opacity-50 tracking-widest font-bold">COLOR_UI:</span>
+        <button onClick={() => setIsAmber(false)} className="w-4 h-4 rounded-full bg-[#1fff2e] border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
+        <button onClick={() => setIsAmber(true)} className="w-4 h-4 rounded-full bg-[#ffb642] border-2 border-white cursor-pointer hover:scale-110 transition-transform" />
       </div>
 
+      {/* HEADER */}
       <nav className="w-full max-w-5xl mx-auto pt-8 px-4 z-40">
         <div className="flex justify-between items-end mb-4 border-b-4 pb-2">
-          <h1 className="text-3xl md:text-5xl font-black tracking-tighter drop-shadow-[0_0_8px_rgba(31,255,46,0.5)]">
+          <h1 className="text-4xl md:text-6xl font-black tracking-tighter drop-shadow-[0_0_10px_var(--pip-color)]">
             Pip-Boy 3000
           </h1>
-          <div className="text-right text-xs opacity-70">
+          <div className="text-right text-xs opacity-80">
             <p>A.PIRAS OS v4.0.1</p>
             <p>MEMORY: 64KB OK</p>
           </div>
         </div>
 
-        <div className="flex gap-1">
+        <div className="flex gap-1 overflow-x-auto no-scrollbar">
           {['STAT', 'DATA', 'ITEMS'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 md:px-12 py-1 text-xl md:text-2xl font-bold transition-all border-t-2 border-x-2 
-                ${activeTab === tab ? 'bg-[var(--pip-color)] text-black' : 'hover:bg-[var(--pip-color-dim)]'}`}
+              className={`px-8 md:px-14 py-2 text-2xl font-bold transition-all border-t-2 border-x-2 
+                ${activeTab === tab ? 'bg-[var(--pip-color)] text-black' : 'hover:bg-[var(--pip-color-dim)] opacity-60'}`}
             >
               {tab}
             </button>
@@ -81,35 +87,36 @@ export default function App() {
         </div>
       </nav>
 
+      {/* MAIN SCREEN */}
       <main className="grow w-full max-w-5xl mx-auto border-x-4 border-b-4 bg-black/40 relative mb-8 overflow-y-auto custom-scrollbar">
-        <div className="p-6 md:p-10 transition-opacity duration-300">
+        <div className="p-6 md:p-10">
           
           {activeTab === 'STAT' && (
-            <div className="space-y-10">
+            <div className="space-y-12 animate-in fade-in duration-500">
               <section>
-                <h2 className="text-4xl border-b mb-4 italic">&gt; Stato_Utente</h2>
-                <div className="grid md:grid-cols-2 gap-8">
+                <h2 className="text-4xl border-b mb-6 italic font-black underline-offset-8">&gt; Stato_Utente</h2>
+                <div className="grid md:grid-cols-2 gap-10 items-center">
                   <div className="space-y-4">
-                    <p className="text-2xl font-bold">A.PIRAS</p>
-                    <p className="opacity-90 leading-tight h-12 text-lg">
+                    <p className="text-3xl font-bold tracking-widest">A.PIRAS</p>
+                    <p className="opacity-90 leading-tight h-12 text-xl tracking-tighter">
                         {bioText}<span className="animate-pulse">_</span>
                     </p>
-                    <div className="h-5 w-full bg-[var(--pip-color-dim)] border p-0.5 relative">
-                      <div className="h-full bg-[var(--pip-color)] w-[85%]"></div>
-                      <span className="absolute inset-0 text-[10px] text-center text-black font-black flex items-center justify-center uppercase">XP_LEVEL: 85%</span>
+                    <div className="h-6 w-full bg-[var(--pip-color-dim)] border-2 p-0.5 relative">
+                      <div className="h-full bg-[var(--pip-color)] w-[85%] transition-all duration-1000"></div>
+                      <span className="absolute inset-0 text-[11px] text-center text-black font-black flex items-center justify-center uppercase">XP_LEVEL: 85%</span>
                     </div>
                   </div>
-                  <div className="border p-4 bg-[var(--pip-color-dim)]/20 italic text-sm leading-relaxed">
-                    "Interfacce visive e sistemi CMS ottimizzati per la Zona Contaminata digitale."
+                  <div className="border-2 p-5 bg-[var(--pip-color-dim)]/20 italic text-md leading-relaxed border-dashed">
+                    "Interfacce visive e sistemi CMS ottimizzati per la Zona Contaminata digitale. Specialista nel recupero dati pre-bellici."
                   </div>
                 </div>
               </section>
 
               <section>
-                <h2 className="text-2xl border-b mb-4 italic">&gt; Abilità</h2>
-                <div className="flex flex-wrap gap-2">
+                <h2 className="text-3xl border-b mb-6 italic font-black">&gt; Abilità</h2>
+                <div className="flex flex-wrap gap-3">
                   {mySkills.map(s => (
-                    <span key={s} className="border px-3 py-1 hover:bg-[var(--pip-color)] hover:text-black transition-colors font-bold text-xs">
+                    <span key={s} className="border-2 px-4 py-1 hover:bg-[var(--pip-color)] hover:text-black transition-colors font-bold text-sm tracking-widest cursor-default">
                       [{s}]
                     </span>
                   ))}
@@ -119,25 +126,25 @@ export default function App() {
           )}
 
           {activeTab === 'DATA' && (
-            <div className="space-y-8">
-              <h2 className="text-4xl border-b mb-6 italic">&gt; Registro_Archivi</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-8 animate-in fade-in duration-500">
+              <h2 className="text-4xl border-b mb-8 italic font-black">&gt; Registro_Archivi</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {myProjects.map(p => (
                   <div key={p.id} onClick={() => handleProjectClick(p)}
-                    className={`p-4 border-2 cursor-pointer transition-all hover:scale-[1.01] flex flex-col justify-between
+                    className={`p-5 border-2 cursor-pointer transition-all hover:scale-[1.02] flex flex-col justify-between group
                       ${p.type === 'corporate' ? 'border-red-900 bg-red-950/10' : 'bg-[var(--pip-color-dim)]/10'}`}
                   >
                     <div>
-                        <div className="flex justify-between items-start mb-2">
-                          <span className="text-[10px] border px-1 font-black">{p.status}</span>
-                          {p.type === 'public' && <GithubIcon className="w-4 h-4" />}
+                        <div className="flex justify-between items-start mb-3">
+                          <span className="text-[10px] border-2 px-2 font-black py-0.5">{p.status}</span>
+                          {p.type === 'public' && <GithubIcon className="w-5 h-5 group-hover:rotate-12 transition-transform" />}
                         </div>
-                        <h3 className="text-xl font-bold">[{p.title}]</h3>
-                        <p className="text-xs opacity-80 mt-2 lowercase leading-tight">{p.description}</p>
+                        <h3 className="text-2xl font-black group-hover:underline">[{p.title}]</h3>
+                        <p className="text-sm opacity-80 mt-3 normal-case italic leading-snug">{p.description}</p>
                     </div>
-                    <div className="mt-4 flex gap-2">
-                      {p.tech.slice(0, 3).map(t => (
-                        <span key={t} className="bg-[var(--pip-color)] text-black text-[9px] px-1 font-black">{t}</span>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {p.tech.map(t => (
+                        <span key={t} className="bg-[var(--pip-color)] text-black text-[10px] px-2 font-black">{t}</span>
                       ))}
                     </div>
                   </div>
@@ -147,38 +154,59 @@ export default function App() {
           )}
 
           {activeTab === 'ITEMS' && (
-            <div className="space-y-12">
-              <section className="border-2 border-dashed p-8 text-center">
-                <h2 className="text-3xl mb-2">Inventario_Dossier</h2>
-                <p className="mb-6 opacity-60 text-xs italic">Generazione file PDF per archiviazione analogica.</p>
+            <div className="space-y-12 animate-in fade-in duration-500 text-center md:text-left">
+              <section className="border-4 border-dotted p-10 bg-[var(--pip-color-dim)]/5">
+                <h2 className="text-4xl mb-4 font-black underline">Inventario_Dossier</h2>
+                <p className="mb-8 opacity-70 text-sm italic tracking-widest">Generazione documento PDF per archiviazione fisica.</p>
                 <a href={`${import.meta.env.BASE_URL}Alessandra_Piras_CV.pdf`} download 
-                  className="inline-block bg-[var(--pip-color)] text-black px-10 py-3 text-2xl font-black hover:bg-white transition-colors animate-pulse">
+                  className="inline-block bg-[var(--pip-color)] text-black px-12 py-4 text-3xl font-black hover:bg-white hover:scale-105 transition-all animate-pulse">
                   SCARICA_CV.EXE
                 </a>
+              </section>
+
+              <section className="grid md:grid-cols-3 gap-4">
+                 {[
+                    { label: 'MAIL', link: 'mailto:ale.piras9719@gmail.com' },
+                    { label: 'LINKEDIN', link: 'https://www.linkedin.com/in/alessandra-piras-407990377' },
+                    { label: 'GITHUB', link: 'https://github.com/ale9719' }
+                  ].map(c => (
+                    <a key={c.label} href={c.link} target="_blank" rel="noreferrer" 
+                       className="border-2 py-5 hover:bg-[var(--pip-color)] hover:text-black font-black text-xl text-center transition-colors">
+                      {c.label}
+                    </a>
+                  ))}
               </section>
             </div>
           )}
         </div>
       </main>
 
+      {/* FOOTER */}
+      <footer className="w-full max-w-5xl mx-auto flex justify-between p-4 opacity-40 text-[12px] font-black italic">
+        <span>HP [||||||||||] 100%</span>
+        <span>RADS: 0.00 mSv</span>
+        <span className="hidden md:inline">UPLINK_STABLE</span>
+      </footer>
+
+      {/* MODAL NDA */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
-          <div className="border-4 border-red-600 p-8 max-w-sm w-full bg-black shadow-[0_0_50px_rgba(220,38,38,0.5)] text-center">
-            <h2 className="text-red-600 text-5xl font-black mb-4 animate-bounce underline italic">ALT!</h2>
-            <p className="text-red-500 font-bold mb-8 uppercase text-sm leading-tight">
-                Accordo di Riservatezza (NDA) Rilevato. Accesso negato all'utente ospite.
-            </p>
-            <button onClick={() => setShowModal(false)} className="w-full border-2 border-red-500 text-red-500 py-2 text-xl hover:bg-red-500 hover:text-black transition-all font-black">
-              CHIUDI
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+          <div className="border-4 border-red-600 p-10 max-w-md w-full bg-black shadow-[0_0_60px_rgba(220,38,38,0.6)] text-center">
+            <h2 className="text-red-600 text-6xl font-black mb-6 animate-bounce italic">ALT!</h2>
+            <div className="space-y-4 border-y-2 border-red-900 py-6 mb-8">
+                <p className="text-red-500 font-black uppercase text-lg tracking-tighter">
+                    Accordo di Riservatezza (NDA) Rilevato.
+                </p>
+                <p className="text-red-700 text-xs font-bold uppercase">
+                    L'accesso ai sorgenti aziendali è criptato per utenti non autorizzati.
+                </p>
+            </div>
+            <button onClick={() => setShowModal(false)} className="w-full border-2 border-red-500 text-red-500 py-3 text-2xl hover:bg-red-500 hover:text-black transition-all font-black cursor-pointer">
+              INDIETRO
             </button>
           </div>
         </div>
       )}
-
-      <footer className="w-full max-w-5xl mx-auto flex justify-between p-4 opacity-40 text-[10px]">
-        <span>HP [||||||||||] 100%</span>
-        <span>RADS: 0.00</span>
-      </footer>
     </div>
   );
 }
